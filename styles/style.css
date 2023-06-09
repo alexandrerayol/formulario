@@ -192,7 +192,7 @@ main{
 
 .container-img{
     grid-area: image;
-    background-image: url('/images/side-image-2x.jpg');
+    background-image: url('images/side-image-2x.jpg');
     background-position: bottom center;
     background-repeat: no-repeat;
     background-size: cover;
