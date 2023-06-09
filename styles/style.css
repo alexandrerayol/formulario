@@ -12,7 +12,9 @@
     --form-background: #24221f;
     --primary-color: #ffc632;
 }
-
+::-webkit-scrollbar{
+    width: 0px;
+}
 *{
     padding: 0px;
     margin: 0px;
@@ -33,6 +35,7 @@ main{
 
 .container-login{
     grid-area: login;
+    width: 50vw;
     height: 100vh;
     background-color: var(--background);
     color: white;
@@ -41,26 +44,24 @@ main{
     align-items: center;
     justify-content: center;
 
-   
+    overflow: auto;
 }
 
 .container-login  form{
-    width: 570px;
-    height: 510px;
+    width: 600px;
+    height: 570px;
+
     border-radius: 5px;
     background-color: var(--form-background);
-    margin: 0px 30px;
+    margin: 0px 25px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
 #titulo{
-    width: 350px;
-    height: 64px;
-
+    width: 100%;
     margin-bottom: 24px;
 }
 
@@ -70,27 +71,34 @@ main{
     font-weight: bold;
     color: var(--text-title);
     margin-bottom: 8px;
+
+    text-align: center;
 }
 
 #titulo p {
     font-family: var(--font-roboto);
     font-size: 16px;
     color: var(--text-base);
+    text-align: center;
 }
 #container-email,#container-senha{
-    width: 350px;
-    height: 64px;
+    width: 60%;
+    height: auto;
 
     font-family: var(--font-Poppins);
     font-size: 16px;
+    margin-bottom: 24px;
 
-    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-
+.input-label{
+    width: 100%;
+}
 #container-email input, #container-senha input{
-    width: 335px;
-    height: 50px;
+    width: 100%;
+    height: 55px;
 
     border-radius: 5px;
     background-color: transparent;
@@ -103,16 +111,16 @@ main{
     text-indent: 10px;
 }
 #container-esqueciSenha{
-    width: 335px;
+    width: 100%;
     font-family: var(--font-Poppins);
     font-size: 16px;
     color: var(--text-base);
     text-align: left;
     
     display: flex;
-    gap: 32px;
-    
-    margin-bottom: 32px;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 24px;
 }
 
 
@@ -149,14 +157,15 @@ main{
 }
 
 #container-entrar{ 
-    width: 350px;
-    height: 64px;
+    width: 60%;
+    height: auto;
 
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 #container-entrar input{
-    width: 335px;
+    width: 100%;
     height: 50px;
     border-radius: 5px;
     background-color: var(--primary-color);
@@ -168,8 +177,8 @@ main{
 }
 
 #container-registro{
-    width: 330px;
-    text-indent: 28px;
+    width: 100%;
+    text-align: center;
 }
 #container-registro p,a{
     text-decoration: none;
@@ -188,3 +197,57 @@ main{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+@media only screen and (max-width:1000px){
+    main{
+        grid-template-columns: 60vw 40vw;
+        grid-template-rows: 100vh;
+        grid-template-areas: "login image";
+    }
+
+    .container-login{
+        width: 60vw;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    main{
+        grid-template-columns: 1fr;
+        grid-template-areas: "login";
+    }
+
+    .container-login{
+        width: 100vw;
+    }
+
+    .container-login  form{
+        width: 550px;
+    }
+
+    #container-email,#container-senha{
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    #container-email,#container-senha{
+        width: 80%;
+    }
+    #titulo p{
+        display: none;
+    }
+    #container-esqueciSenha{
+        font-size: 14px;
+        gap: 10px;
+    }
+    #checkbox-button{
+        transform: scale(1.2);
+    }
+    #container-entrar{
+        width: 80%;
+        margin-bottom: 20px;
+    }
+    #container-registro{
+        font-size: 14px;
+    }
+} 
